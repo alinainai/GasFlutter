@@ -12,6 +12,8 @@ class Global {
   static const String ROUTER_HTTP_LEARN = "http_learn";
   static const String ROUTER_CUSTOM_WIDGET = "custom_widget";
   static const String ROUTER_SHARE_DATA = "share_data";
+  static const String ROUTER_LOCAL_STORAGE = "local_storage";
+  static const String ROUTER_PROVIDER_LEARN = "provider_learn";
 }
 
 class TextStyleMs {

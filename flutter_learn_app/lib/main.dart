@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_learn_app/src/advanced/animal_learn.dart';
 import 'package:flutter_learn_app/src/advanced/http_learn_wight.dart';
+import 'package:flutter_learn_app/src/advanced/local_storage_widget.dart';
 import 'package:flutter_learn_app/src/learn/compose_widget.dart';
 import 'package:flutter_learn_app/src/learn/base_wight.dart';
 import 'package:flutter_learn_app/src/learn/custom_widget.dart';
@@ -8,6 +10,7 @@ import 'package:flutter_learn_app/src/learn/gesture_widget.dart';
 import 'package:flutter_learn_app/src/learn/list_widget.dart';
 import 'package:flutter_learn_app/src/learn/share_data_widget.dart';
 import 'package:flutter_learn_app/src/learn/slider_wight.dart';
+import 'package:flutter_learn_app/src/module/counter_numbers_screen.dart';
 import 'package:flutter_learn_app/src/newroute/newroute.dart';
 import 'package:flutter_learn_app/src/wight/customwidget.dart';
 import 'package:logging/logging.dart';
@@ -17,11 +20,19 @@ import 'common/global.dart';
 final _mainLogger = Logger("main");
 
 void main() {
+  //显示
+  // debugPaintSizeEnabled = true;
+  //https://juejin.cn/post/6844903940497244167
+  FlutterError.onError = (FlutterErrorDetails details) {
+    print(details);
+  };
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -41,6 +52,8 @@ class MyApp extends StatelessWidget {
         Global.ROUTER_HTTP_LEARN: (context) => HttpLearnWidget(),
         Global.ROUTER_CUSTOM_WIDGET: (context) => CustomWidget(),
         Global.ROUTER_SHARE_DATA: (context) => ShowShareDataWidget(),
+        Global.ROUTER_LOCAL_STORAGE: (context) => LocalStorageWidget(),
+        Global.ROUTER_PROVIDER_LEARN: (context) => CounterNumberScreen(),
       },
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -211,6 +224,36 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[Icon(Icons.add), Text("数据共享")],
+              )),
+          FlatButton(
+              // 设置背景色为黄色
+              color: Colors.green,
+              // 设置斜角矩形边框
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0)),
+              // 确保文字按钮为深色
+              colorBrightness: Brightness.light,
+              onPressed: () =>
+                  {Navigator.pushNamed(context, Global.ROUTER_LOCAL_STORAGE)},
+              // onPressed: () => {Navigator.pushNamed(context, Global.ROUTER_PARENT_WIGHT)},
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[Icon(Icons.add), Text("数据持久化")],
+              )),
+          FlatButton(
+              // 设置背景色为黄色
+              color: Colors.green,
+              // 设置斜角矩形边框
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0)),
+              // 确保文字按钮为深色
+              colorBrightness: Brightness.light,
+              onPressed: () =>
+                  {Navigator.pushNamed(context, Global.ROUTER_PROVIDER_LEARN)},
+              // onPressed: () => {Navigator.pushNamed(context, Global.ROUTER_PARENT_WIGHT)},
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[Icon(Icons.add), Text("provider用法")],
               )),
         ],
       ),
