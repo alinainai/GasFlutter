@@ -121,20 +121,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.3.5"
-  logging:
+  logger:
     dependency: "direct main"
     description:
-      name: logging
+      name: logger
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.11.4"
-  logging_appenders:
-    dependency: "direct main"
-    description:
-      name: logging_appenders
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.4.3+1"
+    version: "0.8.3"
   matcher:
     dependency: transitive
     description:

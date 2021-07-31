@@ -14,6 +14,7 @@ class Global {
   static const String ROUTER_SHARE_DATA = "share_data";
   static const String ROUTER_LOCAL_STORAGE = "local_storage";
   static const String ROUTER_PROVIDER_LEARN = "provider_learn";
+  static const String ROUTER_ERROR_CATCH = "error_catch";
 }
 
 class TextStyleMs {
